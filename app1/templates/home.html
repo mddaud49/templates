@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'CSS/style2.css' %}">
+</head>
+<body>
+    <div id="hr">
+        <h1>my Home Page </h1>
+        {% if stu %}
+          <table>
+            <tr>
+                <th>NAME</th>
+                <th>EMAIL</th>
+                <th>CONTACT</th>
+            </tr>
+              <h1>MY DATA </h1>
+            {% for st in stu %}
+                <tr>
+                    <td>{{st.name}}</td>
+                    <td>{{st.email}}</td>
+                    <td>{{st.contact}}</td>
+                </tr>
+            {% endfor %}
+                
+          </table>
+        {% else %}
+          <h1>NO DATA </h1>
+        {% endif %}
+    </div>
+    
+</body>
+</html>
+
+{% endblock %}

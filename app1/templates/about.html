@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% block content %}
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'CSS/style.css' %}">
+</head>
+
+<body>
+    <div>
+        <h1>my about Page </h1>
+        {% if stu %}
+        <table>
+              <tr>
+                <th>NAME</th>
+                <th>email</th>
+                <th>Contact</th>
+              </tr>
+
+            
+            <h1>MY DATA </h1>
+            {% for st in stu %}
+              <tr>
+                <td>{{st.name}}</td>
+                <td>{{st.email}}</td>
+                <td>{{st.contact}}</td>
+              </tr>
+            {% endfor %}
+        </table>
+        {% else %}
+          <h1>NO DATA</h1>
+        {% endif %}
+    </div>
+
+    <div style="margin: auto;">
+        {% if stu %}
+        <h1>MY DATA</h1>
+        <table>
+            <tr>
+                <th>NAME</th>
+                <th>EMAIL</th>
+                <th>CONTACT</th>
+            </tr>
+            {% for st in stu %}
+            <tr>
+                <td>{{st.name}}</td>
+                <td>{{st.email}}</td>
+                <td>{{st.contact}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% else %}
+          <h1>NOT DATA</h1>
+        {% endif %}
+
+    </div>
+
+</body>
+
+</html>
+
+{% endblock %}
